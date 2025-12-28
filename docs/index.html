@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagrams.net Icon Libraries</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --success: #3fb950;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+    
+    .provider-section {
+      margin-bottom: 3rem;
+    }
+    
+    .provider-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .provider-header h2 {
+      font-size: 1.5rem;
+    }
+    
+    .badge {
+      background: var(--success);
+      color: #000;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .libraries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1rem;
+    }
+    
+    .library-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    
+    .library-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .icon-count {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: normal;
+    }
+    
+    .url-box {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .url-input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.5rem;
+      color: var(--text);
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+    
+    .copy-btn {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    
+    .copy-btn:hover {
+      opacity: 0.9;
+    }
+    
+    .copy-btn.copied {
+      background: var(--success);
+    }
+    
+    .snippet-section {
+      margin-top: 3rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    
+    .snippet-section h2 {
+      margin-bottom: 1rem;
+    }
+    
+    .snippet-code {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      position: relative;
+    }
+    
+    .snippet-code pre {
+      margin: 0;
+      font-family: monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    
+    .snippet-copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+    }
+    
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--text-muted);
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📐 Diagrams.net Icon Libraries</h1>
+      <p class="subtitle">最新のクラウドアイコンを Draw.io Integration で使う</p>
+    </header>
+    
+    <div id="libraries">
+      <div class="loading">ライブラリ情報を読み込み中...</div>
+    </div>
+    
+    <div class="snippet-section">
+      <h2>📋 VS Code settings.json スニペット</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1rem;">
+        以下をコピーして settings.json に追加してください。使いたいカテゴリのみ残すこともできます。
+      </p>
+      <div class="snippet-code">
+        <button class="copy-btn snippet-copy-btn" onclick="copySnippet()">Copy</button>
+        <pre id="settings-snippet">読み込み中...</pre>
+      </div>
+    </div>
+    
+    <footer>
+      <p>
+        <a href="https://github.com/ry0y4n/diagramnet-icon-libraries">GitHub</a> · 
+        毎週自動更新 · 
+        <a href="https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio">Draw.io Integration</a>
+      </p>
+    </footer>
+  </div>
+  
+  <script>
+    const BASE_RAW_URL = 'https://raw.githubusercontent.com/ry0y4n/diagramnet-icon-libraries/main/output';
+    
+    // ライブラリ定義（静的、index.jsonから動的に取得も可能）
+    const LIBRARIES = {
+      azure: {
+        name: 'Azure Architecture Icons',
+        categories: [
+          { name: 'AI + Machine Learning', file: 'ai-and-machine-learning.xml' },
+          { name: 'Analytics', file: 'analytics.xml' },
+          { name: 'App Services', file: 'app-services.xml' },
+          { name: 'Azure Ecosystem', file: 'azure-ecosystem.xml' },
+          { name: 'Azure Stack', file: 'azure-stack.xml' },
+          { name: 'Blockchain', file: 'blockchain.xml' },
+          { name: 'Compute', file: 'compute.xml' },
+          { name: 'Containers', file: 'containers.xml' },
+          { name: 'Databases', file: 'databases.xml' },
+          { name: 'DevOps', file: 'devops.xml' },
+          { name: 'General', file: 'general.xml' },
+          { name: 'Hybrid + Multicloud', file: 'hybrid-and-multicloud.xml' },
+          { name: 'Identity', file: 'identity.xml' },
+          { name: 'Integration', file: 'integration.xml' },
+          { name: 'Intune', file: 'intune.xml' },
+          { name: 'IoT', file: 'iot.xml' },
+          { name: 'Management + Governance', file: 'management-and-governance.xml' },
+          { name: 'Migrate', file: 'migrate.xml' },
+          { name: 'Mixed Reality', file: 'mixed-reality.xml' },
+          { name: 'Mobile', file: 'mobile.xml' },
+          { name: 'Monitor', file: 'monitor.xml' },
+          { name: 'Networking', file: 'networking.xml' },
+          { name: 'New Icons', file: 'new-icons.xml' },
+          { name: 'Other', file: 'other.xml' },
+          { name: 'Security', file: 'security.xml' },
+          { name: 'Storage', file: 'storage.xml' },
+          { name: 'Web', file: 'web.xml' },
+        ]
+      }
+    };
+    
+    function getUrl(provider, file) {
+      return `${BASE_RAW_URL}/${provider}/${file}`;
+    }
+    
+    function copyToClipboard(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+    
+    function renderLibraries() {
+      const container = document.getElementById('libraries');
+      let html = '';
+      
+      for (const [providerId, provider] of Object.entries(LIBRARIES)) {
+        html += `
+          <div class="provider-section">
+            <div class="provider-header">
+              <h2>${provider.name}</h2>
+              <span class="badge">${provider.categories.length} カテゴリ</span>
+            </div>
+            <div class="libraries-grid">
+        `;
+        
+        for (const cat of provider.categories) {
+          const url = getUrl(providerId, cat.file);
+          html += `
+            <div class="library-card">
+              <h3>${cat.name}</h3>
+              <div class="url-box">
+                <input type="text" class="url-input" value="${url}" readonly>
+                <button class="copy-btn" onclick="copyToClipboard('${url}', this)">Copy</button>
+              </div>
+            </div>
+          `;
+        }
+        
+        html += '</div></div>';
+      }
+      
+      container.innerHTML = html;
+    }
+    
+    function generateSettingsSnippet() {
+      const libraries = [];
+      
+      for (const [providerId, provider] of Object.entries(LIBRARIES)) {
+        for (const cat of provider.categories) {
+          libraries.push({
+            entryId: `${provider.name} - ${cat.name}`,
+            libName: `${providerId.charAt(0).toUpperCase() + providerId.slice(1)} - ${cat.name}`,
+            url: getUrl(providerId, cat.file)
+          });
+        }
+      }
+      
+      const snippet = {
+        "hediet.vscode-drawio.customLibraries": libraries
+      };
+      
+      return JSON.stringify(snippet, null, 2);
+    }
+    
+    function copySnippet() {
+      const snippet = generateSettingsSnippet();
+      const btn = document.querySelector('.snippet-copy-btn');
+      copyToClipboard(snippet, btn);
+    }
+    
+    // 初期化
+    document.addEventListener('DOMContentLoaded', () => {
+      renderLibraries();
+      document.getElementById('settings-snippet').textContent = generateSettingsSnippet();
+    });
+  </script>
+</body>
+</html>

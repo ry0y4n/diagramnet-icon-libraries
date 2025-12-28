@@ -2,7 +2,7 @@
 
 [![Update Icon Libraries](https://github.com/ry0y4n/diagramnet-icon-libraries/actions/workflows/update-icons.yml/badge.svg)](https://github.com/ry0y4n/diagramnet-icon-libraries/actions/workflows/update-icons.yml)
 
-最新のクラウドサービスアイコン（Azure、AWS、GCP等）を [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) VS Code 拡張機能で利用できるカスタムライブラリとして提供します。
+最新のクラウドサービスアイコン（Azure、AWS、GCP 等）を [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) VS Code 拡張機能で利用できるカスタムライブラリとして提供します。
 
 > 📝 Draw.io は現在 [diagrams.net](https://www.diagrams.net/) に改名されていますが、VS Code 拡張機能は引き続き "Draw.io Integration" という名前で提供されています。
 
@@ -18,14 +18,14 @@
 {
   "hediet.vscode-drawio.customLibraries": [
     {
-      "entryId": "Azure Compute",
+      "entryId": "Azure - Compute",
       "libName": "Azure - Compute",
-      "url": "https://ry0y4n.github.io/diagramnet-icon-libraries/azure/compute.xml"
+      "url": "https://raw.githubusercontent.com/ry0y4n/diagramnet-icon-libraries/main/output/azure/compute.xml"
     },
     {
-      "entryId": "Azure Networking",
+      "entryId": "Azure - Networking",
       "libName": "Azure - Networking",
-      "url": "https://ry0y4n.github.io/diagramnet-icon-libraries/azure/networking.xml"
+      "url": "https://raw.githubusercontent.com/ry0y4n/diagramnet-icon-libraries/main/output/azure/networking.xml"
     }
   ]
 }
@@ -33,30 +33,34 @@
 
 3. Draw.io エディタを開くと、左側のパネルに新しいライブラリが表示されます！
 
+> 💡 **全カテゴリのスニペット**: [ポータルサイト](https://ry0y4n.github.io/diagramnet-icon-libraries/) でコピー可能なsettings.jsonスニペットを取得できます。
+
 ## 📦 利用可能なライブラリ
 
 ### Azure Architecture Icons
 
-| カテゴリ | URL |
-|---------|-----|
-| AI + Machine Learning | `azure/ai-and-machine-learning.xml` |
-| Analytics | `azure/analytics.xml` |
-| App Services | `azure/app-services.xml` |
-| Compute | `azure/compute.xml` |
-| Containers | `azure/containers.xml` |
-| Databases | `azure/databases.xml` |
-| DevOps | `azure/devops.xml` |
-| Identity | `azure/identity.xml` |
-| Integration | `azure/integration.xml` |
-| IoT | `azure/iot.xml` |
+| カテゴリ                | URL                                   |
+| ----------------------- | ------------------------------------- |
+| AI + Machine Learning   | `azure/ai-and-machine-learning.xml`   |
+| Analytics               | `azure/analytics.xml`                 |
+| App Services            | `azure/app-services.xml`              |
+| Compute                 | `azure/compute.xml`                   |
+| Containers              | `azure/containers.xml`                |
+| Databases               | `azure/databases.xml`                 |
+| DevOps                  | `azure/devops.xml`                    |
+| Identity                | `azure/identity.xml`                  |
+| Integration             | `azure/integration.xml`               |
+| IoT                     | `azure/iot.xml`                       |
 | Management + Governance | `azure/management-and-governance.xml` |
-| Networking | `azure/networking.xml` |
-| Security | `azure/security.xml` |
-| Storage | `azure/storage.xml` |
-| Web | `azure/web.xml` |
-| その他 | [全カテゴリ一覧](output/azure/) |
+| Networking              | `azure/networking.xml`                |
+| Security                | `azure/security.xml`                  |
+| Storage                 | `azure/storage.xml`                   |
+| Web                     | `azure/web.xml`                       |
+| その他                  | [全カテゴリ一覧](output/azure/)       |
 
-> 💡 ベースURL: `https://ry0y4n.github.io/diagramnet-icon-libraries/`
+> 💡 ベース URL: `https://raw.githubusercontent.com/ry0y4n/diagramnet-icon-libraries/main/output/`
+>
+> 📋 全カテゴリのコピペ用スニペットは [ポータルサイト](https://ry0y4n.github.io/diagramnet-icon-libraries/) で取得できます。
 
 ## 🔄 更新スケジュール
 
@@ -95,8 +99,10 @@ diagramnet-icon-libraries/
 │   ├── converters/        # 変換ロジック
 │   │   └── svg_to_drawio.py
 │   └── main.py            # メインスクリプト
-├── output/                # 生成されたXMLファイル（GitHub Pages公開）
+├── output/                # 生成されたXMLファイル（raw.githubusercontent.com経由で配信）
 │   └── azure/
+├── docs/                  # GitHub Pagesポータルサイト
+│   └── index.html
 └── requirements.txt
 ```
 
@@ -112,6 +118,7 @@ diagramnet-icon-libraries/
 このプロジェクトは MIT ライセンスで公開されています。
 
 **注意**: 各アイコンセットは元のライセンスに従います：
+
 - Azure Icons: [Microsoft 利用規約](https://learn.microsoft.com/azure/architecture/icons/)
 - AWS Icons: AWS 利用規約
 - GCP Icons: Google Cloud 利用規約
