@@ -548,10 +548,10 @@
       async function loadLibraries() {
         try {
           // Try relative path first (for local development), then fall back to GitHub raw URL
-          let response;
-          try {
-            response = await fetch("../output/index.json");
-          } catch {
+          let response = await fetch("../output/index.json");
+
+          // If relative path fails (404), try GitHub raw URL
+          if (!response.ok) {
             response = await fetch(`${BASE_RAW_URL}/index.json`);
           }
 
