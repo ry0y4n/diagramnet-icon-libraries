@@ -465,7 +465,9 @@
               border: 1px solid var(--border);
             "
           >
-            <h4 style="margin-bottom: 0.5rem">📖 使い方（ローカルファイル参照）</h4>
+            <h4 style="margin-bottom: 0.5rem">
+              📖 使い方（ローカルファイル参照）
+            </h4>
             <ol
               style="
                 margin-left: 1.5rem;
@@ -486,9 +488,19 @@
                 overflow-x: auto;
               "
             ><code id="usageSnippet"></code></pre>
-            <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.85rem;">
-              💡 <strong>WSL2 + Windows VS Code の場合:</strong> UNC パス形式を使用<br/>
-              例: <code style="font-size: 0.8rem;">\\wsl.localhost\Ubuntu-24.04\home\user\project\icons.xml</code>
+            <p
+              style="
+                margin-top: 0.75rem;
+                color: var(--text-muted);
+                font-size: 0.85rem;
+              "
+            >
+              💡 <strong>WSL2 + Windows VS Code の場合:</strong> UNC
+              パス形式を使用<br />
+              例:
+              <code style="font-size: 0.8rem"
+                >\\wsl.localhost\Ubuntu-24.04\home\user\project\icons.xml</code
+              >
             </p>
           </div>
         </div>
@@ -573,17 +585,47 @@
         microsoft365: {
           name: "Microsoft 365 Architecture Icons",
           categories: [
-            { name: "Microsoft Blue (Dark)", file: "microsoft-blue--48x48-dark-blue-icon.xml" },
-            { name: "Microsoft Blue (Grey)", file: "microsoft-blue--48x48-grey-and-blue-icon.xml" },
-            { name: "Microsoft Blue (Light)", file: "microsoft-blue--48x48-light-blue-icon.xml" },
-            { name: "Microsoft Purple", file: "microsoft-purple--48x48-svg-icons.xml" },
-            { name: "Planner Green", file: "planner-green--48x48-svg-icons.xml" },
-            { name: "Project Green", file: "project-green--48x48-svg-icons.xml" },
-            { name: "SharePoint Teal", file: "sharepoint-teal--48x48-svg-icon.xml" },
+            {
+              name: "Microsoft Blue (Dark)",
+              file: "microsoft-blue--48x48-dark-blue-icon.xml",
+            },
+            {
+              name: "Microsoft Blue (Grey)",
+              file: "microsoft-blue--48x48-grey-and-blue-icon.xml",
+            },
+            {
+              name: "Microsoft Blue (Light)",
+              file: "microsoft-blue--48x48-light-blue-icon.xml",
+            },
+            {
+              name: "Microsoft Purple",
+              file: "microsoft-purple--48x48-svg-icons.xml",
+            },
+            {
+              name: "Planner Green",
+              file: "planner-green--48x48-svg-icons.xml",
+            },
+            {
+              name: "Project Green",
+              file: "project-green--48x48-svg-icons.xml",
+            },
+            {
+              name: "SharePoint Teal",
+              file: "sharepoint-teal--48x48-svg-icon.xml",
+            },
             { name: "Teams Purple", file: "teams-purple.xml" },
-            { name: "Teams Purple (Dark)", file: "teams-purple--48x48-dark-purple-icon.xml" },
-            { name: "Teams Purple (Grey)", file: "teams-purple--48x48-grey-and-purple-icon.xml" },
-            { name: "Teams Purple (Light)", file: "teams-purple--48x48-light-purple-icon.xml" },
+            {
+              name: "Teams Purple (Dark)",
+              file: "teams-purple--48x48-dark-purple-icon.xml",
+            },
+            {
+              name: "Teams Purple (Grey)",
+              file: "teams-purple--48x48-grey-and-purple-icon.xml",
+            },
+            {
+              name: "Teams Purple (Light)",
+              file: "teams-purple--48x48-light-purple-icon.xml",
+            },
           ],
         },
       };
@@ -902,7 +944,8 @@
       function updateUsageSnippet() {
         const libraryName =
           document.getElementById("libraryName").value || "My Custom Icons";
-        const filename = libraryName.toLowerCase().replace(/\s+/g, "-") + ".xml";
+        const filename =
+          libraryName.toLowerCase().replace(/\s+/g, "-") + ".xml";
         const snippet = `{
   "hediet.vscode-drawio.customLibraries": [
     {
