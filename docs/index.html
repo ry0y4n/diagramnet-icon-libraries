@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -397,24 +397,23 @@
       <header>
         <h1>📐 Diagrams.net Icon Libraries</h1>
         <p class="subtitle">
-          最新のクラウドアイコンを Draw.io Integration で使う
+          Use the latest cloud icons with Draw.io Integration
         </p>
       </header>
 
       <!-- SVG Converter Section -->
       <div class="converter-section">
-        <h2>🔧 カスタム SVG コンバーター</h2>
+        <h2>🔧 Custom SVG Converter</h2>
         <p class="converter-description">
-          独自のSVGアイコンをDraw.io用ライブラリに変換します。<br />
-          生成したXMLを自分のリポジトリにホスティングし、raw
-          URLを使用してください。
+          Convert your custom SVG icons to Draw.io libraries.<br />
+          Host the generated XML in your repository and use the raw URL.
         </p>
 
         <div class="drop-zone" id="dropZone">
           <div class="drop-zone-icon">📁</div>
           <p class="drop-zone-text">
-            <strong>SVGファイルをドロップ</strong><br />
-            またはクリックして選択（複数可）
+            <strong>Drop SVG files here</strong><br />
+            or click to select (multiple files supported)
           </p>
           <input
             type="file"
@@ -427,7 +426,7 @@
 
         <div class="converter-options">
           <label>
-            ライブラリ名:
+            Library Name:
             <input
               type="text"
               id="libraryName"
@@ -441,17 +440,17 @@
 
         <div class="converter-results" id="converterResults">
           <h3 style="margin-bottom: 1rem">
-            ✨ 変換完了! (<span id="iconCount">0</span> アイコン)
+            ✨ Conversion Complete! (<span id="iconCount">0</span> icons)
           </h3>
 
           <div class="icons-preview" id="iconsPreview"></div>
 
           <div class="result-buttons" style="margin-top: 1rem">
             <button class="result-btn" onclick="downloadXml()">
-              📥 XMLダウンロード
+              📥 Download XML
             </button>
             <button class="result-btn secondary" onclick="clearFiles()">
-              🗑️ クリア
+              🗑️ Clear
             </button>
           </div>
 
@@ -466,7 +465,7 @@
             "
           >
             <h4 style="margin-bottom: 0.5rem">
-              📖 使い方（ローカルファイル参照）
+              📖 Usage (Local File Reference)
             </h4>
             <ol
               style="
@@ -475,8 +474,8 @@
                 font-size: 0.9rem;
               "
             >
-              <li>XMLをダウンロードして、プロジェクトフォルダ内に配置</li>
-              <li>VS Code の settings.json に以下を追加:</li>
+              <li>Download the XML and place it in your project folder</li>
+              <li>Add the following to VS Code settings.json:</li>
             </ol>
             <pre
               style="
@@ -495,9 +494,9 @@
                 font-size: 0.85rem;
               "
             >
-              💡 <strong>WSL2 + Windows VS Code の場合:</strong> UNC
-              パス形式を使用<br />
-              例:
+              💡 <strong>For WSL2 + Windows VS Code:</strong> Use UNC path
+              format<br />
+              Example:
               <code style="font-size: 0.8rem"
                 >\\wsl.localhost\Ubuntu-24.04\home\user\project\icons.xml</code
               >
@@ -507,20 +506,20 @@
       </div>
 
       <div id="libraries">
-        <div class="loading">ライブラリ情報を読み込み中...</div>
+        <div class="loading">Loading library information...</div>
       </div>
 
       <div class="snippet-section">
-        <h2>📋 VS Code settings.json スニペット</h2>
+        <h2>📋 VS Code settings.json Snippet</h2>
         <p style="color: var(--text-muted); margin-bottom: 1rem">
-          以下をコピーして settings.json
-          に追加してください。使いたいカテゴリのみ残すこともできます。
+          Copy the snippet below and add it to your settings.json. You can keep
+          only the categories you need.
         </p>
         <div class="snippet-code">
           <button class="copy-btn snippet-copy-btn" onclick="copySnippet()">
             Copy
           </button>
-          <pre id="settings-snippet">読み込み中...</pre>
+          <pre id="settings-snippet">Loading...</pre>
         </div>
       </div>
 
@@ -529,7 +528,7 @@
           <a href="https://github.com/ry0y4n/diagramnet-icon-libraries"
             >GitHub</a
           >
-          · 毎週自動更新 ·
+          · Auto-updated Weekly ·
           <a
             href="https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio"
             >Draw.io Integration</a
@@ -608,7 +607,7 @@
         // Check if libraries are loaded
         if (Object.keys(LIBRARIES).length === 0) {
           container.innerHTML =
-            '<div class="loading">ライブラリ情報を読み込み中...</div>';
+            '<div class="loading">Loading library information...</div>';
           return;
         }
 
@@ -622,7 +621,7 @@
           <div class="provider-section">
             <div class="provider-header">
               <h2>${provider.name}</h2>
-              <span class="badge">${iconCount}${provider.categories.length} カテゴリ</span>
+              <span class="badge">${iconCount}${provider.categories.length} categories</span>
             </div>
             <div class="libraries-grid">
         `;

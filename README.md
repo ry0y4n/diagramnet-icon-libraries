@@ -1,18 +1,63 @@
-# Diagrams.net Icon Libraries
+# SVG to Draw.io Library Converter 🎨
 
 [![Update Icon Libraries](https://github.com/ry0y4n/diagramnet-icon-libraries/actions/workflows/update-icons.yml/badge.svg)](https://github.com/ry0y4n/diagramnet-icon-libraries/actions/workflows/update-icons.yml)
+[![Try Online](https://img.shields.io/badge/🌐_Try-Online_Converter-blue?style=flat)](https://ry0y4n.github.io/diagramnet-icon-libraries/)
+[![3200+ Icons](https://img.shields.io/badge/📦_Pre--built-3200+_Icons-green?style=flat)](https://ry0y4n.github.io/diagramnet-icon-libraries/)
 
-最新のクラウドサービスアイコン（Azure、AWS、GCP 等）を [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) VS Code 拡張機能で利用できるカスタムライブラリとして提供します。
+Convert your SVG icons into custom libraries for [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio). Browser-based, no coding required.
 
-> 📝 Draw.io は現在 [diagrams.net](https://www.diagrams.net/) に改名されていますが、VS Code 拡張機能は引き続き "Draw.io Integration" という名前で提供されています。
+> 💡 **Live Example**: 3200+ icons from Azure, Microsoft 365, Dynamics 365, Fabric, and Entra (auto-updated weekly)
 
-## 🚀 クイックスタート
+## ✨ Features
 
-### VS Code での設定
+- 🌐 **Browser Conversion**: Instant conversion with online tool
+- 📦 **Ready-to-Use Libraries**: 3200+ Microsoft product icons available
+- 🔄 **Auto-Updates**: Weekly releases via GitHub Actions
+- 🚀 **Easy Integration**: Seamless setup with VS Code + Draw.io Integration
 
-1. [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) 拡張機能をインストール
+## 🚀 Quick Start
 
-2. `settings.json` に以下を追加:
+### Option 1: Use Online Converter (Recommended)
+
+1. Visit **[Online Tool](https://ry0y4n.github.io/diagramnet-icon-libraries/)**
+2. Drag & drop your SVG files
+3. Download the XML
+4. Add to your VS Code `settings.json`:
+
+```json
+{
+  "hediet.vscode-drawio.customLibraries": [
+    {
+      "entryId": "My Custom Icons",
+      "libName": "My Custom Icons",
+      "file": "${workspaceFolder}/icons/my-icons.xml"
+    }
+  ]
+}
+```
+
+<details>
+<summary><b>Note: Path for WSL2 + Windows Environment</b></summary>
+
+If you're using VS Code on Windows with WSL2, use UNC path format:
+
+```json
+{
+  "hediet.vscode-drawio.customLibraries": [
+    {
+      "entryId": "My Custom Icons",
+      "libName": "My Custom Icons",
+      "file": "\\\\wsl.localhost\\Ubuntu\\home\\user\\project\\icons\\my-icons.xml"
+    }
+  ]
+}
+```
+
+</details>
+
+### Option 2: Use Pre-built Libraries
+
+Directly use pre-generated libraries. For example, to add Azure Compute and Networking categories:
 
 ```json
 {
@@ -31,124 +76,229 @@
 }
 ```
 
-3. Draw.io エディタを開くと、左側のパネルに新しいライブラリが表示されます！
+> 📋 **All Categories**: Get snippets for all 46 categories at [Portal Site](https://ry0y4n.github.io/diagramnet-icon-libraries/)
 
-> 💡 **全カテゴリのスニペット**: [ポータルサイト](https://ry0y4n.github.io/diagramnet-icon-libraries/) でコピー可能な settings.json スニペットを取得できます。
+## 📦 Pre-built Libraries (3200+ Icons)
 
-## 📦 利用可能なライブラリ
+Ready-to-use libraries with weekly auto-updates:
 
-### Azure Architecture Icons
+| Provider                     | Icons | Categories | Main Categories                                    |
+| ---------------------------- | ----- | ---------- | -------------------------------------------------- |
+| **Azure Architecture Icons** | 705   | 29         | Compute, Networking, Databases, AI/ML, Security... |
+| **Microsoft 365**            | 963   | 11         | Teams, SharePoint, Planner, Project...             |
+| **Microsoft Fabric**         | 1505  | 1          | Data Platform Icons                                |
+| **Dynamics 365**             | 29    | 3          | Apps, Mixed Reality, Product Family                |
+| **Microsoft Entra**          | 14    | 2          | Identity & Access Management                       |
 
-| カテゴリ                | URL                                   |
-| ----------------------- | ------------------------------------- |
-| AI + Machine Learning   | `azure/ai-and-machine-learning.xml`   |
-| Analytics               | `azure/analytics.xml`                 |
-| App Services            | `azure/app-services.xml`              |
-| Compute                 | `azure/compute.xml`                   |
-| Containers              | `azure/containers.xml`                |
-| Databases               | `azure/databases.xml`                 |
-| DevOps                  | `azure/devops.xml`                    |
-| Identity                | `azure/identity.xml`                  |
-| Integration             | `azure/integration.xml`               |
-| IoT                     | `azure/iot.xml`                       |
-| Management + Governance | `azure/management-and-governance.xml` |
-| Networking              | `azure/networking.xml`                |
-| Security                | `azure/security.xml`                  |
-| Storage                 | `azure/storage.xml`                   |
-| Web                     | `azure/web.xml`                       |
-| その他                  | [全カテゴリ一覧](output/azure/)       |
+> 📋 **Full List**: Browse and copy all categories at [Portal Site](https://ry0y4n.github.io/diagramnet-icon-libraries/)
 
-### Microsoft 365 Architecture Icons
+## 🛠️ Create Custom Libraries
 
-| カテゴリ         | URL                                                         |
-| ---------------- | ----------------------------------------------------------- |
-| Microsoft Blue   | `microsoft365/microsoft-blue--48x48-dark-blue-icon.xml`     |
-| Microsoft Blue   | `microsoft365/microsoft-blue--48x48-grey-and-blue-icon.xml` |
-| Microsoft Blue   | `microsoft365/microsoft-blue--48x48-light-blue-icon.xml`    |
-| Microsoft Purple | `microsoft365/microsoft-purple--48x48-svg-icons.xml`        |
-| Planner Green    | `microsoft365/planner-green--48x48-svg-icons.xml`           |
-| Project Green    | `microsoft365/project-green--48x48-svg-icons.xml`           |
-| SharePoint Teal  | `microsoft365/sharepoint-teal--48x48-svg-icon.xml`          |
-| Teams Purple     | `microsoft365/teams-purple.xml`                             |
-| Teams Purple     | `microsoft365/teams-purple--48x48-dark-purple-icon.xml`     |
-| Teams Purple     | `microsoft365/teams-purple--48x48-grey-and-purple-icon.xml` |
-| Teams Purple     | `microsoft365/teams-purple--48x48-light-purple-icon.xml`    |
+### Browser Conversion (Easiest)
 
-> 💡 ベース URL: `https://raw.githubusercontent.com/ry0y4n/diagramnet-icon-libraries/main/output/`
->
-> 📋 全カテゴリのコピペ用スニペットは [ポータルサイト](https://ry0y4n.github.io/diagramnet-icon-libraries/) で取得できます。
+1. Visit **[Online Converter](https://ry0y4n.github.io/diagramnet-icon-libraries/)**
+2. Upload your SVG files (multiple files supported)
+3. Preview the icons
+4. Download the XML
+5. Place in your project and reference from `settings.json`
 
-## 🔄 更新スケジュール
-
-- **Azure**: 毎週日曜日 00:00 UTC に自動更新
-  - アイコンは [Microsoft 公式サイト](https://learn.microsoft.com/azure/architecture/icons/) から取得
-- **Microsoft 365**: 毎週日曜日 00:00 UTC に自動更新
-  - アイコンは [Microsoft Architecture Icons (GitHub)](https://github.com/microsoft/Microsoft-365-Architecture-Icons) から取得
-
-## 🛠️ ローカルで実行
+### Local Conversion (For Developers)
 
 ```bash
-# リポジトリをクローン
+# Clone the repository
 git clone https://github.com/ry0y4n/diagramnet-icon-libraries.git
 cd diagramnet-icon-libraries
 
-# 仮想環境を作成
+# Create virtual environment
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-# 依存関係をインストール
+# Install dependencies
 pip install -r requirements.txt
 
-# ライブラリを生成
-python -m src.main
+# Convert SVG folder
+python -m src.converters.svg_to_drawio my-icons/ output/custom.xml
 
-# 生成されたファイルは output/ に保存されます
+# Use the generated file in VS Code
 ```
 
-## 📁 プロジェクト構成
+## 🔄 Update Schedule
+
+Pre-built libraries are automatically updated on the following schedule:
+
+- **Azure Architecture Icons**: Every Sunday at 00:00 UTC
+  - Source: [Microsoft Learn](https://learn.microsoft.com/azure/architecture/icons/)
+- **Microsoft 365**: Every Sunday at 00:00 UTC
+  - Source: [Microsoft Official Repository](https://github.com/microsoft/Microsoft-365-Architecture-Icons)
+- **Dynamics 365**: Every Sunday at 00:00 UTC
+  - Source: [Microsoft Learn](https://learn.microsoft.com/dynamics365/get-started/icons)
+- **Microsoft Fabric**: Every Sunday at 00:00 UTC
+  - Source: [Fabric Samples](https://github.com/microsoft/fabric-samples)
+- **Microsoft Entra**: Every Sunday at 00:00 UTC
+  - Source: [Microsoft Learn](https://learn.microsoft.com/entra/architecture/architecture-icons)
+
+## 📁 Project Structure
 
 ```
 diagramnet-icon-libraries/
-├── .github/workflows/     # GitHub Actions ワークフロー
+├── .github/workflows/
+│   └── update-icons.yml      # Auto-update workflow
 ├── src/
-│   ├── fetchers/          # アイコン取得プラグイン
-│   │   ├── base.py        # 基底クラス
-│   │   └── azure.py       # Azure fetcher
-│   ├── converters/        # 変換ロジック
-│   │   └── svg_to_drawio.py
-│   └── main.py            # メインスクリプト
-├── output/                # 生成されたXMLファイル（raw.githubusercontent.com経由で配信）
-│   └── azure/
-├── docs/                  # GitHub Pagesポータルサイト
-│   └── index.html
+│   ├── fetchers/             # Icon fetcher plugins
+│   │   ├── base.py           # Base class
+│   │   ├── azure.py          # Azure fetcher
+│   │   ├── microsoft365.py   # Microsoft 365 fetcher
+│   │   ├── dynamics365.py    # Dynamics 365 fetcher
+│   │   ├── fabric.py         # Fabric fetcher
+│   │   └── entra.py          # Entra fetcher
+│   ├── converters/
+│   │   └── svg_to_drawio.py  # SVG → Draw.io conversion logic
+│   └── main.py               # Main script
+├── output/                   # Generated libraries (served via GitHub)
+│   ├── index.json            # Metadata
+│   ├── azure/
+│   ├── microsoft365/
+│   ├── dynamics365/
+│   ├── fabric/
+│   └── entra/
+├── docs/
+│   └── index.html            # Online converter + portal
 └── requirements.txt
 ```
 
-## 🗺️ ロードマップ
+## 🗺️ Roadmap
 
-- [x] Azure Architecture Icons
-- [x] Microsoft 365 Architecture Icons
-- [ ] AWS Architecture Icons
-- [ ] Google Cloud Icons
-- [ ] Material Design Icons
+- [x] **Core Features**
 
-## 📄 ライセンス
+  - [x] SVG to Draw.io conversion engine
+  - [x] Online browser converter
+  - [x] VS Code integration guide
 
-このプロジェクトは MIT ライセンスで公開されています。
+- [x] **Microsoft Ecosystem**
 
-**注意**: 各アイコンセットは元のライセンスに従います：
+  - [x] Azure Architecture Icons (705 icons)
+  - [x] Microsoft 365 Icons (963 icons)
+  - [x] Dynamics 365 Icons (29 icons)
+  - [x] Microsoft Fabric Icons (1505 icons)
+  - [x] Microsoft Entra Icons (14 icons)
 
-- Azure Icons: [Microsoft 利用規約](https://learn.microsoft.com/azure/architecture/icons/)
-- Microsoft 365 Icons: [Microsoft 利用規約](https://github.com/microsoft/Microsoft-365-Architecture-Icons)
-- AWS Icons: AWS 利用規約
-- GCP Icons: Google Cloud 利用規約
+- [ ] **Other Cloud Providers**
 
-## 🤝 コントリビューション
+  - [ ] AWS Architecture Icons
+  - [ ] Google Cloud Icons
+  - [ ] Kubernetes Icons
 
-Issue や Pull Request を歓迎します！
+- [ ] **Extensions**
+  - [ ] Icon preview feature
+  - [ ] Batch conversion API
+  - [ ] VS Code extension
 
-1. このリポジトリをフォーク
-2. 新しいブランチを作成 (`git checkout -b feature/aws-icons`)
-3. 変更をコミット (`git commit -m 'Add AWS icons fetcher'`)
-4. プッシュ (`git push origin feature/aws-icons`)
-5. Pull Request を作成
+## 💡 FAQ
+
+<details>
+<summary><b>Q: What is Draw.io Integration?</b></summary>
+
+[Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) is a VS Code extension that lets you edit Draw.io (diagrams.net) diagrams directly in VS Code. The custom library feature allows you to add your own icon sets.
+
+</details>
+
+<details>
+<summary><b>Q: Should I use local files or URLs?</b></summary>
+
+- **URL**: For team sharing and auto-updates
+- **Local Files**: For private icons, offline work, or custom icons
+
+</details>
+
+<details>
+<summary><b>Q: Does it work with WSL2 + Windows VS Code?</b></summary>
+
+Yes. Use UNC path format:
+
+```json
+{
+  "file": "\\\\wsl.localhost\\Ubuntu\\home\\user\\project\\icons.xml"
+}
+```
+
+</details>
+
+<details>
+<summary><b>Q: Can I use this commercially?</b></summary>
+
+The tool itself is MIT licensed. However, each icon set follows its original license:
+
+- Microsoft product icons: [Microsoft Terms](https://learn.microsoft.com/azure/architecture/icons/)
+- Custom icons: Follow your own license terms
+
+</details>
+
+<details>
+<summary><b>Q: Can I change the icon size?</b></summary>
+
+Icons are automatically optimized during conversion (default 80px). For custom sizing, adjust the `max_size` parameter in the local script.
+
+</details>
+
+## 🤝 Contributing
+
+Issues and Pull Requests are welcome!
+
+### How to Contribute
+
+1. **Add New Icon Sets**
+
+   - Implement a new fetcher in `src/fetchers/`
+   - Extend `BaseFetcher` and implement `fetch()` and `get_categories()`
+
+2. **Improve Converter**
+
+   - Optimize SVG parsing
+   - Enhance compression algorithms
+
+3. **Documentation**
+   - Add usage examples
+   - Expand FAQ
+
+### Development Flow
+
+```bash
+# 1. Fork & Clone
+git clone https://github.com/YOUR_USERNAME/diagramnet-icon-libraries.git
+
+# 2. Create Branch
+git checkout -b feature/aws-icons
+
+# 3. Develop
+# ... make changes ...
+
+# 4. Generate XML Files
+python -m src.main --clean
+
+# 5. Generate Copy-Paste Snippets
+python local-dev/generate_drawio_local_settings
+
+# 6. Test
+## Load custom library in VS Code and verify
+
+# 7. Commit & Push
+git commit -m 'feat: add AWS icons fetcher'
+git push origin feature/aws-icons
+
+# 8. Create Pull Request
+```
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+**Important**: Each icon set follows its original license:
+
+| Icon Set         | License         | Source                                                                             |
+| ---------------- | --------------- | ---------------------------------------------------------------------------------- |
+| Azure Icons      | Microsoft Terms | [Official Page](https://learn.microsoft.com/azure/architecture/icons/)             |
+| Microsoft 365    | Microsoft Terms | [GitHub](https://github.com/microsoft/Microsoft-365-Architecture-Icons)            |
+| Dynamics 365     | Microsoft Terms | [Official Page](https://learn.microsoft.com/dynamics365/get-started/icons)         |
+| Microsoft Fabric | Microsoft Terms | [GitHub](https://github.com/microsoft/fabric-samples)                              |
+| Microsoft Entra  | Microsoft Terms | [Official Page](https://learn.microsoft.com/entra/architecture/architecture-icons) |
+| Custom SVG       | Your License    | -                                                                                  |
