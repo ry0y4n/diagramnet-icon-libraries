@@ -11,6 +11,7 @@ import shutil
 from pathlib import Path
 
 from src.fetchers.azure import AzureFetcher
+from src.fetchers.dynamics365 import Dynamics365Fetcher
 from src.fetchers.microsoft365 import Microsoft365Fetcher
 from src.converters.svg_to_drawio import (
     create_library_entry_from_file,
@@ -125,6 +126,17 @@ def main():
         "name": "Microsoft 365 Architecture Icons",
         "categories": m365_stats["files"],
         "total_icons": m365_stats["icons"],
+    }
+
+    # Generate Dynamics 365 libraries
+    dynamics365_stats = generate_libraries(
+        Dynamics365Fetcher(args.cache / "dynamics365"),
+        args.output,
+    )
+    providers_index["dynamics365"] = {
+        "name": "Microsoft Dynamics 365 Icons",
+        "categories": dynamics365_stats["files"],
+        "total_icons": dynamics365_stats["icons"],
     }
 
     # Generate index

@@ -50,5 +50,14 @@
       "output/microsoft365/teams-purple--48x48-light-purple-icon.xml"
     ],
     "total_icons": 963
+  },
+  "dynamics365": {
+    "name": "Microsoft Dynamics 365 Icons",
+    "categories": [
+      "output/dynamics365/dynamics-365-app-icons.xml",
+      "output/dynamics365/dynamics-365-mixed-reality-icons.xml",
+      "output/dynamics365/dynamics-365-product-family-icons.xml"
+    ],
+    "total_icons": 29
   }
 }
