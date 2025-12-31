@@ -542,93 +542,49 @@
       const BASE_RAW_URL =
         "https://raw.githubusercontent.com/ry0y4n/diagramnet-icon-libraries/main/output";
 
-      // ライブラリ定義（静的、index.jsonから動的に取得も可能）
-      const LIBRARIES = {
-        azure: {
-          name: "Azure Architecture Icons",
-          categories: [
-            {
-              name: "AI + Machine Learning",
-              file: "ai-and-machine-learning.xml",
-            },
-            { name: "Analytics", file: "analytics.xml" },
-            { name: "App Services", file: "app-services.xml" },
-            { name: "Azure Ecosystem", file: "azure-ecosystem.xml" },
-            { name: "Azure Stack", file: "azure-stack.xml" },
-            { name: "Blockchain", file: "blockchain.xml" },
-            { name: "Compute", file: "compute.xml" },
-            { name: "Containers", file: "containers.xml" },
-            { name: "Databases", file: "databases.xml" },
-            { name: "DevOps", file: "devops.xml" },
-            { name: "General", file: "general.xml" },
-            { name: "Hybrid + Multicloud", file: "hybrid-and-multicloud.xml" },
-            { name: "Identity", file: "identity.xml" },
-            { name: "Integration", file: "integration.xml" },
-            { name: "Intune", file: "intune.xml" },
-            { name: "IoT", file: "iot.xml" },
-            {
-              name: "Management + Governance",
-              file: "management-and-governance.xml",
-            },
-            { name: "Migrate", file: "migrate.xml" },
-            { name: "Mixed Reality", file: "mixed-reality.xml" },
-            { name: "Mobile", file: "mobile.xml" },
-            { name: "Monitor", file: "monitor.xml" },
-            { name: "Networking", file: "networking.xml" },
-            { name: "New Icons", file: "new-icons.xml" },
-            { name: "Other", file: "other.xml" },
-            { name: "Security", file: "security.xml" },
-            { name: "Storage", file: "storage.xml" },
-            { name: "Web", file: "web.xml" },
-          ],
-        },
-        microsoft365: {
-          name: "Microsoft 365 Architecture Icons",
-          categories: [
-            {
-              name: "Microsoft Blue (Dark)",
-              file: "microsoft-blue--48x48-dark-blue-icon.xml",
-            },
-            {
-              name: "Microsoft Blue (Grey)",
-              file: "microsoft-blue--48x48-grey-and-blue-icon.xml",
-            },
-            {
-              name: "Microsoft Blue (Light)",
-              file: "microsoft-blue--48x48-light-blue-icon.xml",
-            },
-            {
-              name: "Microsoft Purple",
-              file: "microsoft-purple--48x48-svg-icons.xml",
-            },
-            {
-              name: "Planner Green",
-              file: "planner-green--48x48-svg-icons.xml",
-            },
-            {
-              name: "Project Green",
-              file: "project-green--48x48-svg-icons.xml",
-            },
-            {
-              name: "SharePoint Teal",
-              file: "sharepoint-teal--48x48-svg-icon.xml",
-            },
-            { name: "Teams Purple", file: "teams-purple.xml" },
-            {
-              name: "Teams Purple (Dark)",
-              file: "teams-purple--48x48-dark-purple-icon.xml",
-            },
-            {
-              name: "Teams Purple (Grey)",
-              file: "teams-purple--48x48-grey-and-purple-icon.xml",
-            },
-            {
-              name: "Teams Purple (Light)",
-              file: "teams-purple--48x48-light-purple-icon.xml",
-            },
-          ],
-        },
-      };
+      // ライブラリ定義（index.jsonから動的に取得）
+      let LIBRARIES = {};
+
+      // Load libraries from index.json
+      async function loadLibraries() {
+        try {
+          // Try relative path first (for local development), then fall back to GitHub raw URL
+          let response;
+          try {
+            response = await fetch("../output/index.json");
+          } catch {
+            response = await fetch(`${BASE_RAW_URL}/index.json`);
+          }
+
+          const indexData = await response.json();
+
+          // Transform index.json format to our internal format
+          LIBRARIES = {};
+          for (const [providerId, providerData] of Object.entries(indexData)) {
+            LIBRARIES[providerId] = {
+              name: providerData.name,
+              totalIcons: providerData.total_icons,
+              categories: providerData.categories.map((path) => {
+                // Extract filename from path (e.g., "output/azure/compute.xml" -> "compute.xml")
+                const filename = path.split("/").pop();
+                // Generate display name from filename
+                const name = filename
+                  .replace(".xml", "")
+                  .split("-")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ");
+                return { name, file: filename };
+              }),
+            };
+          }
+
+          return LIBRARIES;
+        } catch (error) {
+          console.error("Failed to load libraries:", error);
+          // Fallback to empty object
+          return {};
+        }
+      }
 
       function getUrl(provider, file) {
         return `${BASE_RAW_URL}/${provider}/${file}`;
@@ -648,14 +604,25 @@
 
       function renderLibraries() {
         const container = document.getElementById("libraries");
+
+        // Check if libraries are loaded
+        if (Object.keys(LIBRARIES).length === 0) {
+          container.innerHTML =
+            '<div class="loading">ライブラリ情報を読み込み中...</div>';
+          return;
+        }
+
         let html = "";
 
         for (const [providerId, provider] of Object.entries(LIBRARIES)) {
+          const iconCount = provider.totalIcons
+            ? `${provider.totalIcons.toLocaleString()} icons · `
+            : "";
           html += `
           <div class="provider-section">
             <div class="provider-header">
               <h2>${provider.name}</h2>
-              <span class="badge">${provider.categories.length} カテゴリ</span>
+              <span class="badge">${iconCount}${provider.categories.length} カテゴリ</span>
             </div>
             <div class="libraries-grid">
         `;
@@ -708,7 +675,11 @@
       }
 
       // 初期化
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", async () => {
+        // Load libraries from index.json
+        await loadLibraries();
+
+        // Render UI
         renderLibraries();
         document.getElementById("settings-snippet").textContent =
           generateSettingsSnippet();
