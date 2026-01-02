@@ -1,12 +1,10 @@
-# SVG to Draw.io Library Converter 🎨
+# SVG to diagrams.net Library Converter 🎨
 
-[![Update Icon Libraries](https://github.com/ry0y4n/diagramnet-icon-libraries/actions/workflows/update-icons.yml/badge.svg)](https://github.com/ry0y4n/diagramnet-icon-libraries/actions/workflows/update-icons.yml)
-[![Try Online](https://img.shields.io/badge/🌐_Try-Online_Converter-blue?style=flat)](https://ry0y4n.github.io/diagramnet-icon-libraries/)
-[![3200+ Icons](https://img.shields.io/badge/📦_Pre--built-3200+_Icons-green?style=flat)](https://ry0y4n.github.io/diagramnet-icon-libraries/)
+[![Update Icon Libraries](https://github.com/ry0y4n/vscode-diagrams-icon-builder/actions/workflows/update-icons.yml/badge.svg)](https://github.com/ry0y4n/vscode-diagrams-icon-builder/actions/workflows/update-icons.yml)
+[![Try Online](https://img.shields.io/badge/🌐_Try-Online_Converter-blue?style=flat)](https://ry0y4n.github.io/vscode-diagrams-icon-builder/)
+[![3200+ Icons](https://img.shields.io/badge/📦_Pre--built-3200+_Icons-green?style=flat)](https://ry0y4n.github.io/vscode-diagrams-icon-builder/)
 
 Convert your SVG icons into custom libraries for [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio). Browser-based, no coding required.
-
-> 💡 **Live Example**: 3200+ icons from Azure, Microsoft 365, Dynamics 365, Fabric, and Entra (auto-updated weekly)
 
 ![Portal Overview](docs/images/converter.png)
 
@@ -22,9 +20,9 @@ Convert your SVG icons into custom libraries for [Draw.io Integration](https://m
 ### Option 1: Use Online Converter (Recommended)
 
 ![Online Converter](docs/images/converter-demo.gif)
-_Drag & drop your SVG files and get Draw.io libraries instantly_
+_Drag & drop your SVG files and get diagrams.net libraries instantly_
 
-1. Visit **[Online Converter](https://ry0y4n.github.io/diagramnet-icon-libraries/)**
+1. Visit **[Online Converter](https://ry0y4n.github.io/vscode-diagrams-icon-builder/)**
 2. Drag & drop your SVG files
 3. Download the XML
 4. Add to your VS Code `settings.json`:
@@ -70,18 +68,18 @@ Directly use pre-generated libraries. For example, to add Azure Compute and Netw
     {
       "entryId": "Azure - Compute",
       "libName": "Azure - Compute",
-      "url": "https://raw.githubusercontent.com/ry0y4n/diagramnet-icon-libraries/main/output/azure/compute.xml"
+      "url": "https://raw.githubusercontent.com/ry0y4n/vscode-diagrams-icon-builder/main/output/azure/compute.xml"
     },
     {
       "entryId": "Azure - Networking",
       "libName": "Azure - Networking",
-      "url": "https://raw.githubusercontent.com/ry0y4n/diagramnet-icon-libraries/main/output/azure/networking.xml"
+      "url": "https://raw.githubusercontent.com/ry0y4n/vscode-diagrams-icon-builder/main/output/azure/networking.xml"
     }
   ]
 }
 ```
 
-> 📋 **All Categories**: Get snippets for all 46 categories at [Library Portal](https://ry0y4n.github.io/diagramnet-icon-libraries/)
+> 📋 **All Categories**: Get snippets for all 46 categories at [Library Portal](https://ry0y4n.github.io/vscode-diagrams-icon-builder/)
 
 ## 📦 Pre-built Libraries (3200+ Icons)
 
@@ -98,13 +96,13 @@ _Browse all categories and copy URLs instantly_
 | **Dynamics 365**             | 29    | 3          | Apps, Mixed Reality, Product Family                |
 | **Microsoft Entra**          | 14    | 2          | Identity & Access Management                       |
 
-> 📋 **Full List**: Browse and copy all categories at [Library Portal](https://ry0y4n.github.io/diagramnet-icon-libraries/)
+> 📋 **Full List**: Browse and copy all categories at [Library Portal](https://ry0y4n.github.io/vscode-diagrams-icon-builder/)
 
 ## 🛠️ Create Custom Libraries
 
 ### Browser Conversion (Easiest)
 
-1. Visit **[Online Converter](https://ry0y4n.github.io/diagramnet-icon-libraries/)**
+1. Visit **[Online Converter](https://ry0y4n.github.io/vscode-diagrams-icon-builder/)**
 2. Upload your SVG files (multiple files supported)
 3. Preview the icons
 4. Download the XML
@@ -114,8 +112,8 @@ _Browse all categories and copy URLs instantly_
 
 ```bash
 # Clone the repository
-git clone https://github.com/ry0y4n/diagramnet-icon-libraries.git
-cd diagramnet-icon-libraries
+git clone https://github.com/ry0y4n/vscode-diagrams-icon-builder.git
+cd vscode-diagrams-icon-builder
 
 # Create virtual environment
 python -m venv .venv
@@ -148,7 +146,7 @@ Pre-built libraries are automatically updated on the following schedule:
 ## 📁 Project Structure
 
 ```
-diagramnet-icon-libraries/
+vscode-diagrams-icon-builder/
 ├── .github/workflows/
 │   └── update-icons.yml      # Auto-update workflow
 ├── src/
@@ -160,7 +158,7 @@ diagramnet-icon-libraries/
 │   │   ├── fabric.py         # Fabric fetcher
 │   │   └── entra.py          # Entra fetcher
 │   ├── converters/
-│   │   └── svg_to_drawio.py  # SVG → Draw.io conversion logic
+│   │   └── svg_to_drawio.py  # SVG → diagrams.net conversion logic
 │   └── main.py               # Main script
 ├── output/                   # Generated libraries (served via GitHub)
 │   ├── index.json            # Metadata
@@ -204,9 +202,9 @@ diagramnet-icon-libraries/
 ## 💡 FAQ
 
 <details>
-<summary><b>Q: What is Draw.io Integration?</b></summary>
+<summary><b>Q: What is diagrams.net Integration?</b></summary>
 
-[Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) is a VS Code extension that lets you edit Draw.io (diagrams.net) diagrams directly in VS Code. The custom library feature allows you to add your own icon sets.
+[diagrams.net Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) is a VS Code extension that lets you edit diagrams.net diagrams directly in VS Code. The custom library feature allows you to add your own icon sets.
 
 </details>
 
@@ -272,7 +270,7 @@ Issues and Pull Requests are welcome!
 
 ```bash
 # 1. Fork & Clone
-git clone https://github.com/YOUR_USERNAME/diagramnet-icon-libraries.git
+git clone https://github.com/YOUR_USERNAME/vscode-diagrams-icon-builder.git
 
 # 2. Create Branch
 git checkout -b feature/aws-icons

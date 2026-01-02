@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Draw.io Icon Library Generator
+diagrams.net Icon Library Generator
 
 Main script to fetch icons from various sources and generate
-Draw.io custom library XML files.
+diagrams.net custom library XML files.
 """
 
 import argparse
@@ -30,7 +30,7 @@ def _safe_filename(name: str) -> str:
 
 
 def generate_libraries(fetcher, output_dir: Path) -> dict:
-    """Generate Draw.io libraries for all categories of a fetcher."""
+    """Generate diagrams.net libraries for all categories of a fetcher."""
     fetcher.fetch()
 
     provider_output = output_dir / fetcher.name

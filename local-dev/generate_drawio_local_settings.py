@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Generate a VS Code settings snippet for hediet.vscode-drawio custom libraries.
 
-This repository generates Diagrams.net (draw.io) custom library XML files under `output/`.
-For local verification, the Draw.io Integration extension also supports referencing a
+This repository generates diagrams.net custom library XML files under `output/`.
+For local verification, the diagrams.net Integration extension also supports referencing a
 local XML file via the `file` property.
 
 This script reads `output/index.json` and prints a copy-paste-ready JSON snippet.
@@ -46,7 +46,7 @@ def wsl_unc_path(workspace_root: Path, relative_posix_path: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Generate Draw.io customLibraries snippet using local XML files (WSL UNC path)."
+        description="Generate diagrams.net customLibraries snippet using local XML files (WSL UNC path)."
     )
     parser.add_argument(
         "--index",

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-SVG to Draw.io Custom Library Converter
+SVG to diagrams.net Custom Library Converter
 
-Converts SVG files to Draw.io (Diagrams.net) custom library XML format.
+Converts SVG files to diagrams.net custom library XML format.
 """
 
 import base64
